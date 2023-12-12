@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Clases</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let clase of clases$ | async">
+      <ion-label>{{ clase.nombre }}</ion-label>
+      <ion-buttons slot="end">
+        <ion-button class="ver-detalle" (click)="verDetalle(clase)">Ver Detalle</ion-button>
+        <ion-button class="generar-qr" (click)="generarQR(clase)">Generar QR</ion-button>
+      </ion-buttons>
+      <ion-list style="margin: 0 16px;">
+        <ion-item *ngFor="let asignatura of clase.asignaturas">
+          <ion-label>{{ asignatura.nombre }}</ion-label>
+          <ion-note>{{ asignatura.movil.codigo }} - {{ asignatura.movil.seccion }}</ion-note>
+          <ion-note>{{ asignatura.calidad.codigo }} - {{ asignatura.calidad.seccion }}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+  
+  <!-- Detalles de la clase -->
+  <ion-content *ngIf="claseSeleccionada" class="detalle-clase">
+    <h2>Detalles de la clase {{ claseSeleccionada.nombre }}</h2>
+    <!-- Muestra la información detallada de la clase -->
+    <!-- Ajusta según la estructura de tu base de datos -->
+    <p>Profesor: {{ claseSeleccionada.profesor }}</p>
+    <p>Sección: {{ claseSeleccionada.seccion }}</p>
+    <p>Siglas: {{ claseSeleccionada.siglas }}</p>
+    <p>Código: {{ claseSeleccionada.codigo }}</p>
+
+    <!-- Puedes agregar más detalles según la estructura de tu base de datos -->
+  
+    <ion-button (click)="claseSeleccionada = null">Cerrar Detalles</ion-button>
+  </ion-content>
+</ion-content>

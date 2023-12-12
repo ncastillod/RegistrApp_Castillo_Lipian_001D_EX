@@ -1,0 +1,18 @@
+/* modal-qr.component.scss */
+
+ion-button {
+  margin: 8px 0; /* Ajusta el margen entre los botones */
+}
+
+.qr-container {
+  max-width: 100%;
+  text-align: center; /* Centra el código QR en la pantalla */
+  margin: 16px auto; /* Ajusta los márgenes superior e inferior */
+  position: relative; /* Añade posicionamiento relativo al contenedor */
+}
+
+ion-button.ion-xd {
+  position: absolute; /* Utiliza posicionamiento absoluto para el botón "Cerrar" */
+  bottom: 8px; /* Ajusta la distancia desde la parte inferior según sea necesario */
+  width: 100%; /* Asegura que el botón ocupe todo el ancho del contenedor */
+}

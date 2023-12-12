@@ -1,0 +1,20 @@
+/* Header styles */
+ion-header {
+  ion-toolbar {
+    --ion-background-color: #007bff; /* Color de fondo azul para el header */
+    ion-title {
+      color: #ffffff; /* Color blanco para el texto del título */
+      text-align: center; /* Centrar el texto del título */
+    }
+  }
+}
+
+/* Estilos adicionales para el botón de cerrar sesión y botones en el contenido */
+ion-button.cerrar-sesion,
+ion-button.ver-detalle,
+ion-button.generar-qr {
+  --background: #007bff; /* Color de fondo azul para los botones */
+  --color: #ffffff; /* Color blanco para el texto de los botones */
+  width: auto;
+  margin: 8px; /* Ajuste el margen según sea necesario */
+}
