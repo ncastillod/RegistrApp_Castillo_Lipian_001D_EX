@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="warning"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Información del Usuario
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Nombre:</ion-label>
+          <ion-text>{{ usuario?.displayName || 'No disponible' }}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Correo Electrónico:</ion-label>
+          <ion-text>{{ usuario?.email || 'No disponible' }}</ion-text>
+        </ion-item>
+
+        <ion-item *ngIf="firstUser">
+          <ion-label>Correo Personal:</ion-label>
+          <ion-text>{{ firstUser.personalEmail || 'No Disponible' }}</ion-text>
+
+          <ion-button (click)="editarPersonalEmail()">Editar</ion-button>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>

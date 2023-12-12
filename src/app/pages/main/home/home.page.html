@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="warning"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img src="./assets/icon/Logo_DuocUC.png" class="ion-padding" alt="">
+  </div>
+  <br><br><br>
+  <br>
+
+
+  
+  
+  
+  <div class="btn" >
+    
+    <ion-fab slot="fixed" >
+      <ion-button xpand="block" fill="outline" shape="round" color="warning" (click)="scan()" [disabled]="!isSupported">
+        Escanear QR <ion-icon name="scan"></ion-icon>
+      </ion-button>
+    </ion-fab>
+    
+    <ion-item *ngFor="let barcode of barcodes">
+      <ion-label position="stacked">{{ barcode.format }}</ion-label>
+      <ion-input type="text" [value]="barcode.rawValue"></ion-input>
+    </ion-item> 
+    
+  </div>
+
+  
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <h4 class="tittle">Proximos Feriados</h4>
+  <div class="calendar">
+    <table>
+      <thead>
+        <tr>
+          <th>Día</th>
+          <th>Fecha</th>
+          <th>Título</th>
+          <th>Tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+</ion-content>
+
+
+<ion-content class="ion-padding">
+  <ion-button expand="full" (click)="mostrarUid()">Mostrar UID</ion-button>
+
+  <ion-card *ngIf="uid">
+    <ion-card-content>
+      <ion-label>UID del usuario:</ion-label>
+      <ion-text>{{ uid }}</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!uid">
+    <ion-card-content>
+      <ion-label>Usuario no autenticado</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

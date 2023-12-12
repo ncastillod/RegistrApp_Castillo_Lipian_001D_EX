@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="warning"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="d-flex-center">
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+      <app-logo ></app-logo>
+     <!--EMAIL-->
+      <app-custom-input
+      autocomplete="email"
+      icon="mail-outline"   
+      [control]="form.controls.email"
+      type="email"
+      label="Correo"
+      ></app-custom-input>
+  
+      <div class="Validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <!-- Corrección: Accede a 'email' usando ['email'] -->
+        <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
+
+        <!-- Corrección: Accede a 'email' usando ['email'] -->
+        <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo válido</div>
+      </div>
+      <!--CONTRASENA-->
+      <app-custom-input
+      [control]="form.controls.password"
+      icon="lock-closed-outline"
+      type="password"
+      label="Contraseña"
+      icon="lock-closed-outline">
+    </app-custom-input>
+
+    <div class="Validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+      <div *ngIf="form.controls.password.errors?.['required']">La Contraseña es requerida</div>
+
+    </div>
+    
+  <ion-button expand="block" fill="clear" class="submit" type="submit" [disabled]="form.invalid" color="warning"> 
+    Ingresar
+    <ion-icon slot="end" name="log-in-outline"></ion-icon>
+  </ion-button>
+
+
+  <ion-button class="ion-margin-top" routerLink="login" expand="block" fill="clear"  fill="outline" color="warning">
+    Registrate
+    <ion-icon slot="end" name="person-add-outline"></ion-icon>
+  </ion-button>
+  
+    </form>
+
+
+  </div>
+
+ 

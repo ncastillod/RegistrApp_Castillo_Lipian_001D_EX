@@ -1,0 +1,7 @@
+{
+  "name": "regisweb",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
